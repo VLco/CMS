@@ -143,7 +143,6 @@ namespace Content_Management_System__CMS_
 
         private void EndBtn_Click(object sender, EventArgs e)
         {
-            resources[currentPoint-1] = new ResForPoint(countTasks, tasks, infoText, infoTitle);
 
             using (var folder = new FolderBrowserDialog())
             {
@@ -252,6 +251,7 @@ namespace Content_Management_System__CMS_
 
         private void NextPointBtn_Click(object sender, EventArgs e)
         {
+            resources[currentPoint] = new ResForPoint(countTasks, tasks, infoText, infoTitle);
             currentPoint++;
             StartBtn.Enabled = true;
             splitContainer.Panel2Collapsed = true;
@@ -274,6 +274,7 @@ namespace Content_Management_System__CMS_
                 DescTask.Text = string.Empty;
                 TitleTask.Text = string.Empty;
                 NextPointBtn.Visible = false;
+                currentTask = 0;
                 numTarget.Value = 1;
                 CountTasks.Value = 1;
             }
